@@ -16,8 +16,8 @@ pub fn build(b: *std.Build) void {
         "-Wstrict-prototypes",
     };
 
-    const exe = b.addExecutable(.{ .name = b.path("foo"), .root_module = b.createModule(.{ .target = target, .optimize = optimize }) }); // Change "foo" to the project name.
-    exe.addCSourceFile(.{ .file = "./src/main.c", .flags = &flags });
+    const exe = b.addExecutable(.{ .name = "foo", .root_module = b.createModule(.{ .target = target, .optimize = optimize }) }); // Change "foo" to the project name.
+    exe.addCSourceFile(.{ .file = b.path("./src/main.c"), .flags = &flags });
     // const src = [_][]const u8{
     //     "./src/main.c",
     // };
